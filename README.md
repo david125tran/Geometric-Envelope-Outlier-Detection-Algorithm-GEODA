@@ -19,8 +19,16 @@ This produces a smooth, interpretable visual envelope that can dynamically adapt
 
 ---
 ## Example
-- Here we have a plot where we may want to flag a circle curve.   
+- Here we have a plot where we may want to flag a circle curve.  Notice the one peak around `time=12 (units)`
 ![Plot with Atypical Curve](https://github.com/david125tran/Outlier-Detection-Algorithm/blob/main/Images/1.png?raw=true)
+- We can compute the average at each time point **(blue line)**.  Crawl along on the rolling average to create circles to create an envelope.  
+![Plot with Atypical Curve](https://github.com/david125tran/Outlier-Detection-Algorithm/blob/main/Images/2.png?raw=true)
+- From the envelope, we can form upper and lower limits to figure out what to flag.  
+![Plot with Atypical Curve](https://github.com/david125tran/Outlier-Detection-Algorithm/blob/main/Images/3.png?raw=true)
+- We can then call the garbage collector to get rid of the circles to free up memory and we see our limits **(green circles)**.  Any curves thare are outside of the limits are flagged and colored as **red/pink**.  
+![Plot with Atypical Curve](https://github.com/david125tran/Outlier-Detection-Algorithm/blob/main/Images/4.png?raw=true)
+- And then we can control the width of these limits by changing the circle width.  
+![Plot with Atypical Curve](https://github.com/david125tran/Outlier-Detection-Algorithm/blob/main/Images/5.png?raw=true)
 
 
 
