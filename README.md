@@ -20,7 +20,8 @@ This produces a smooth, interpretable visual envelope that can dynamically adapt
 ---
 ## Example
 - Here we have a plot where we may want to flag a circle curve.   
-![Plot with Atypical Curve](https://github.com/david125tran/Outlier-Detection-Algorithm/tree/main/Images/1.png)
+![Plot with Atypical Curve](https://github.com/david125tran/Outlier-Detection-Algorithm/blob/main/Images/1.png?raw=true)
+
 
 
 
