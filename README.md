@@ -3,6 +3,8 @@
 This **Outlier-Detection-Algorithm** is a custom time-series analysis method designed to identify outlier signals by constructing a **rolling geometric envelope** around an averaged reference trace.  
   
 Unlike conventional statistical methods that rely on standard deviations or quantiles, it uses **circular geometry** to build a dynamic, visually intuitive tolerance band that adapts to local variations in the data.  The algorithm is dynamic because it adapts its geometric envelope to the local shape and variability of the averaged signal—automatically adjusting the upper and lower limits based on the data’s real-time trends rather than using fixed thresholds.  
+  
+In the real world, some businesses need flexible solutions for dynamic problems.  This algorithm is a different approach. I had in mind what I wanted to create, and it actually took me several attempts to convert my thoughts into code.   
 
 ---
 
@@ -18,8 +20,8 @@ The algorithm works by:
 This produces a smooth, interpretable visual envelope that can dynamically adapt to nonlinear trends or noise while maintaining deterministic, parameter-based control.
 
 ---
-## Example
-- Here we have a plot where we may want to flag a circle curve.  Notice the one peak around `time=12 (units)`
+## 🧮 Example
+- Here we have a plot where we may want to flag specific curve(s) that deviate from the norm.  Notice the one peak around `time=12 (units)`.  Is this a curve we would want to flag?
 ![Plot with Atypical Curve](https://github.com/david125tran/Outlier-Detection-Algorithm/blob/main/Images/1.png?raw=true)
 - We can compute the average at each time point **(blue line)**.  Crawl along on the rolling average to create circles to create an envelope.  
 ![Plot with Atypical Curve](https://github.com/david125tran/Outlier-Detection-Algorithm/blob/main/Images/2.png?raw=true)
@@ -63,6 +65,3 @@ A DataFrame or Plotly figure showing all traces, the mean trace, and the geometr
 | `show_circles` | `bool` | Whether to render the full circular geometry (for visualization/debug). |
 
 ---
-
-## 🧮 Example
-
