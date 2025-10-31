@@ -1,8 +1,6 @@
 # ---------------------------------- Libraries ----------------------------------
 import ast
-from collections import deque
 import gc
-from heapq import heappush, heappop
 import numpy as np
 import os
 import pandas as pd
@@ -275,7 +273,7 @@ def apply_rolling_limits(
     else:
         plot_df["flagged"] = False
 
-    # --- Generate circles (use your current settings) ---
+    # --- Generate circles ---
     circles_list: list[dict[str, np.ndarray]] = []
     theta = np.linspace(0.0, 2*np.pi, 60, endpoint=False)
     cos_t, sin_t = np.cos(theta), np.sin(theta)
