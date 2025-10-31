@@ -18,6 +18,11 @@ The algorithm works by:
 This produces a smooth, interpretable visual envelope that can dynamically adapt to nonlinear trends or noise while maintaining deterministic, parameter-based control.
 
 ---
+## Example
+- Here we have a plot where we may want to flag a circle curve.   
+![Plot with Atypical Curve](https://github.com/david125tran/Outlier-Detection-Algorithm/tree/main/Images/1.png)
+
+
 
 ## 🧩 Core Algorithm
 
