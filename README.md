@@ -7,6 +7,20 @@ In the real world, some systems need flexible solutions for dynamic problems. Th
 
 ---
 
+
+## 🎥 Demo  
+**Run the visualization version:**
+```bash
+python plot-outlier-detector.py
+```
+**Run the production version:**
+```bash
+python plot-outlier-detector-refactored.py
+```
+
+
+---
+
 ## 🚦 Two Versions
 - 1️⃣- [**plot-outlier-detected.py**](https://github.com/david125tran/Outlier-Detection-Algorithm/blob/main/plot-outlier-detector.py) — **Visualized Version** - This version was built for concept visualization and debugging.
 It renders the full rolling circle geometry used to construct the envelope, showing how each circular segment contributes to the final tolerance band.  This script is computationally expensive due to circle generation and rendering
