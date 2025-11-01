@@ -43,9 +43,18 @@ def make_plots(pressure_df: pd.DataFrame,
                enable_algorithm1: bool,
                ) -> None:
     """
-    Creates interactive Plotly plots from pressure_df.
-    Computes the Average, analytic scanline limits (no circle sampling),
-    and styles/flags traces that cross the limits.
+    This function makes plots of the pressure traces with outlier detection.
+    1. It first processes the input DataFrame to extract pressure traces.
+    2. It then computes the average pressure trace.
+    3. It creates a tidy DataFrame suitable for Plotly Express.
+    4. It applies outlier detection algorithms to flag outlier traces.
+    5. Finally, it generates and displays the plots using Plotly Express.
+
+    Args:
+        pressure_df (pd.DataFrame): DataFrame containing 'sample_id' and 'pressure_trace
+        enable_algorithm1 (bool): Whether to enable the first outlier detection algorithm.
+    Returns:
+        None
     """
     print_banner("Making Plots")
 
@@ -215,17 +224,19 @@ def apply_rolling_limits(
     x_scale: float = 1.0 # kept for signature compatibility (we use a fixed visual ax below)
     ) -> tuple[pd.DataFrame, list[dict]]:
     """
-    Analytic scanline computation of rolling upper/lower limits around the "Average" series.
+    Apply rolling limits around the "Average" series in plot_df using an analytic scanline approach
+    to create upper and lower envelopes.
 
-    We treat the envelope as the Minkowski sum of the Average polyline with a disk of
-    radius `width` (optionally varying with local slope if gradient_radius=True).
-    Instead of sampling circle perimeters, we directly compute, for each integer x,
-    the vertical extent contributed by each (interpolated) disk center.
+    Args:
+        plot_df (pd.DataFrame): DataFrame containing 'x', 'pressure', and 'sample_id' columns.
+        width (float): Base radius for the rolling limits.          
+        interp_factor (int): Number of interpolation points between each pair of Average points.
+        gradient_radius (bool): If True, vary the radius based on the slope of the Average
 
-    Returns:
-      plot_df with 'lower_limit' and 'upper_limit' columns merged per x,
-      and an empty 'circles' list (for API compatibility with previous code).
+    Returns plot_df with 'upper_limit' and 'lower_limit' columns added.
     """
+
+
     print_banner("Applying Algorithm: apply_rolling_limits()")
 
     # Pull the Average series
