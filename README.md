@@ -1,11 +1,22 @@
 # 🧠 Outlier-Detection-Algorithm
+This repository contains two complementary Python implementations of a **time-series outlier detection algorithm** designed to be generalizable to any dense time-series data.
 
-This **Outlier-Detection-Algorithm** is a custom time-series analysis method designed to identify outlier signals by constructing a **rolling geometric envelope** around an averaged reference trace.  
-  
-Unlike conventional statistical methods that rely on standard deviations or quantiles, it uses **circular geometry** to build a dynamic, visually intuitive tolerance band that adapts to local variations in the data.  The algorithm is dynamic because it adapts its geometric envelope to the local shape and variability of the averaged signal—automatically adjusting the upper and lower limits based on the data’s real-time trends rather than using fixed thresholds.  
-  
-In the real world, some businesses need flexible solutions for dynamic problems.  This algorithm is a different approach. I had in mind what I wanted to create, and it actually took me several attempts to convert my thoughts into code.   
+The method identifies outlier signals by constructing a **rolling geometric envelope** around an averaged reference trace, rather than relying on fixed statistical thresholds (like standard deviations or quantiles). The algorithm is **dynamic** because it adapts its geometric envelope to the local shape and variability of the averaged signal—automatically adjusting the upper and lower limits based on the data’s real-time trends instead of using fixed thresholds.
 
+In the real world, some systems need flexible solutions for dynamic problems. This algorithm represents one such approach. I had a clear mental image of what I wanted to build, but it took several iterations to translate that concept into code.
+
+---
+
+## 🚦 Two Versions
+- 1️⃣- [**plot-outlier-detected.py**](https://github.com/david125tran/Outlier-Detection-Algorithm/blob/main/plot-outlier-detector.py) — **Visualized Version** - This version was built for concept visualization and debugging.
+It renders the full rolling circle geometry used to construct the envelope, showing how each circular segment contributes to the final tolerance band.  This script is computationally expensive due to circle generation and rendering
+- 2️⃣ - [**plot-outlier-detector-refactored.py**](https://github.com/david125tran/Outlier-Detection-Algorithm/blob/main/plot-outlier-detector-refactored.py) — **Production Version** - This version is the **fully refactored, production-grade implementation** of the same algorithm.
+    - ⚡ No circle objects are generated; instead, envelopes are computed analytically.
+    - 🧮 The algorithm uses direct geometric computation (based on analytic scanline logic) to achieve the same upper/lower bounds **orders of magnitude faster**.
+    - 🧠 Additional lightweight features are added for automation pipelines, such as:
+    - Dynamic NaN handling and averaging.
+    - 💻 Optimized for **speed, scalability, and memory efficiency**
+    
 ---
 
 ## 🚀 Overview
